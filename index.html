@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/angular.js" ></script>
+	</head>
+	<body ng-controller="myCtrl">
+		<!--{{ xiao }}-->
+		<!--<div ng-controller="myCtrl1">
+			{{ userName+age }}
+		</div>
+		<div ng-controller="myCtrl2">
+			{{ userName+age }}
+		</div>-->
+	   <!-- <input type="text" ng-model="user" />
+	    {{ user }}
+	    <select ng-model="us">
+	    	<option value="奔驰">奔驰</option>
+	    	<option value="宝马">宝马</option>
+	    	<option value="奥迪">奔驰</option>
+	    </select>
+	    {{us}}-->
+	  <!--  <img ng-src="{{hu}}" />-->
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default" ng-repeat="pros in pro">
+		    <div class="panel-heading" role="tab" id="heading{{$index}}">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}">
+		            {{$index+1}} {{ pros.name }}        
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapse{{$index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{$index}}">
+		      <div class="panel-body">
+		          <ul class="list-group" ng-repeat="city in pros.cities">
+                      <li class="list-group-item" > {{$index+1}}{{city.name}}</li>
+                  </ul>        
+		      </div>
+		    </div>
+		  </div>
+  
+      </div>
+      <!--<ul ng-repeat="pros in pro">
+      	<li>{{pros.name}}
+      	    <ul ng-repeat="city in pros.cities">
+      	    	<li>{{city.name}}</li>
+      	    </ul>
+      	</li>
+      </ul>-->
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.3.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	
+	<script>
+		var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.user="www";
+			$scope.xiao={
+				"userName":"王",
+				"age":18,
+				"height":"200cm"
+				
+			}
+			$scope.hu="img/1.jpg"
+			$scope.pro=[
+		    {
+		    	"name":"浙江",
+		    	"cities":[
+		    	   {"name":"杭州"},
+		    	   {"name":"金华"},
+		    	   {"name":"温州"}
+		    	]
+		    },
+		    {
+		    	'name':"湖北",
+		    	'cities':[
+		    	    {'name':"武汉"},
+		    	    {'name':"襄樊"},
+		    	    {'name':"黄冈"}
+		    	]
+		    },
+		    {
+		    	"name":"江苏",
+		    	"cities":[
+		    	   {"name":"南京"},
+		    	   {"name":"徐州"},
+		    	   {"name":"连云港"}
+		    	]
+		    }
+		
+		]
+		})
+		/*app.controller("myCtrl1",function($scope){
+			$scope.age="99岁";
+		})
+		app.controller("myCtrl2",function($scope){
+		    wu	
+		})*/
+		
+		
+	</script>
+	
+</html>
